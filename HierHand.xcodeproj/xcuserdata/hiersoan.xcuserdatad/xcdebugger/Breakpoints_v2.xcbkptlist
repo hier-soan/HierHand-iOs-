@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "ED3CBF42-E0E5-4872-8300-8111E13BB453"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "93E8006F-9DF7-4FBE-A8FC-D77D97E40831"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HierHand/HHPageController/HHTabBarBaseController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB8B743F-EA44-4FDE-B670-6A3B7AC1EF29"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HierHand/HHModel/HHUserManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "-initWithRandomUser"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "670D8282-8637-4D1B-A21D-E206FA682EC3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HierHand/HHCustomVIewCell/HHHomeDoubleCollectionViewCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-setCellLayout"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "25EC4C87-231A-4A7D-9867-801CE226F9B2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HierHand/HHCustomVIewCell/HHHomeDoubleCollectionViewCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "-initWithFrame:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "25EC4C87-231A-4A7D-9867-801CE226F9B2 - ae65ee72ad45760"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHHomeDoubleCollectionViewCell init]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHCustomVIewCell/HHHomeDoubleCollectionViewCell.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "25EC4C87-231A-4A7D-9867-801CE226F9B2 - f19b4fe19c99f3df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHHomeDoubleCollectionViewCell initWithFrame:]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHCustomVIewCell/HHHomeDoubleCollectionViewCell.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "613B2D06-DE34-41CC-B974-516D0DEA889F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HierHand/HHPageViewController/HHBaseViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "-changeInSelectedView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "682BD7C0-A40B-4171-ACC2-57D6B99F771A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HierHand/HHPageViewController/HHHomeViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "682BD7C0-A40B-4171-ACC2-57D6B99F771A - 96f303a0f81a4165"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHHomeViewController viewDidLoad]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHPageViewController/HHHomeViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "300">
+               </Location>
+               <Location
+                  uuid = "682BD7C0-A40B-4171-ACC2-57D6B99F771A - 96f303a0f81a4165"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHHomeViewController viewDidLoad]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHPageViewController/HHHomeViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "352">
+               </Location>
+               <Location
+                  uuid = "682BD7C0-A40B-4171-ACC2-57D6B99F771A - 96f303a0f81a4165"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHHomeViewController viewDidLoad]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHPageViewController/HHHomeViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "682BD7C0-A40B-4171-ACC2-57D6B99F771A - 96f303a0f81a4165"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHHomeViewController viewDidLoad]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHPageViewController/HHHomeViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8996DFB5-4A63-4E9A-BF27-FD1ECB6576AB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HierHand/HHLayout/HHFlowTightlyLayout.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "-initVariable"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8AFF693B-E6E2-4E46-AAF0-E9BD40CC0971"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HierHand/HHLayout/HHFlowTightlyLayout.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "-prepareLayout"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8AFF693B-E6E2-4E46-AAF0-E9BD40CC0971 - 16d602b6e7841f91"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHFlowTightlyLayout prepareLayout]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHLayout/HHFlowTightlyLayout.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "8AFF693B-E6E2-4E46-AAF0-E9BD40CC0971 - 16d602b6e7841ff6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHFlowTightlyLayout prepareLayout]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHLayout/HHFlowTightlyLayout.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "8AFF693B-E6E2-4E46-AAF0-E9BD40CC0971 - 16d602b6e7841fd7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHFlowTightlyLayout prepareLayout]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHLayout/HHFlowTightlyLayout.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "78FBD8CE-A2E5-4897-883A-4BA642CA0DC5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HierHand/HHLayout/HHFlowTightlyLayout.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-layoutAttributesForElementsInRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9549D6F4-C08B-4FBB-B8D5-C525F8AE1A77"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HierHand/HHLayout/HHFlowTightlyLayout.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "HHFlowTightlyLayout"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "9549D6F4-C08B-4FBB-B8D5-C525F8AE1A77 - 594284dd374e9e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHFlowTightlyLayout collectionViewContentSize]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHLayout/HHFlowTightlyLayout.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "9549D6F4-C08B-4FBB-B8D5-C525F8AE1A77 - 594284dd374e9e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHFlowTightlyLayout collectionViewContentSize]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHLayout/HHFlowTightlyLayout.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9B20BD2-6A8A-4980-BB79-4C92D6D5A97C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HierHand/HHLayout/HHFlowTightlyLayout.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "HHFlowTightlyLayout"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "D9B20BD2-6A8A-4980-BB79-4C92D6D5A97C - d59b1c9e9458ff1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHFlowTightlyLayout calculateAttributes]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHLayout/HHFlowTightlyLayout.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "D9B20BD2-6A8A-4980-BB79-4C92D6D5A97C - d59b1c9e9458f10c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHFlowTightlyLayout calculateAttributes]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHLayout/HHFlowTightlyLayout.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "D9B20BD2-6A8A-4980-BB79-4C92D6D5A97C - d59b1c9e9458f4fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHFlowTightlyLayout calculateAttributes]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHLayout/HHFlowTightlyLayout.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C8CAA9E2-B8DD-4C6E-A883-3F36D089FC0C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HierHand/HHLayout/HHFlowTightlyLayout.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "-collectionViewContentSize"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
