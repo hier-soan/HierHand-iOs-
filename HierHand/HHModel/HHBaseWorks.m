@@ -9,10 +9,21 @@
 
 @implementation HHBaseWorks
 
-- (id)initWithUserInfo:(HHUserInfo *)userInfo {
+- (id)initWithRandomContent {
+    self = [self init];
+    if (self) {
+        _owner = [[HHUserInfo alloc] init];
+    }
+    return self;
+}
+
+- (id)init {
     self = [super init];
     if (self) {
-        _userInfo = userInfo;
+        _getLikeNum = 0;
+        _commentNum = 0;
+        _collectNum = 0;
+        _shareNum = 0;
     }
     return self;
 }

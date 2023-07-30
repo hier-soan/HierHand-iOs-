@@ -6,12 +6,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HHRootUserInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HHUserManager : NSObject
 
-- (NSArray *)userInfoArray;
++ (NSArray *)userInfoArray;
+
++ (instancetype)sharedUserManager;
+
+- (id)initWithRandomUserAndRandomWorksAndRandCity;
+
+- (id)initWithRandomUserAndRandomWorks;
 
 - (id)initWithRandomUser;
 
@@ -19,11 +26,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSUInteger)sameCityCount;
 
-- (NSArray *)followUser;
+- (NSUInteger)foundCount;
 
-- (NSArray *)foundUser;
+- (HHUserInfo *)UserForName:(NSString *)name;
 
-- (NSArray *)sameCityUser;
+- (NSArray *)getToFollowUser;
+
+- (NSArray *)getSameCityUser;
+
+- (NSArray *)getFoundUser;
 
 @end
 

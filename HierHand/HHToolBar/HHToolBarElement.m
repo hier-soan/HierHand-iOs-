@@ -15,6 +15,8 @@
         _operateButton = [[UIButton alloc] init];
         _operateButton.frame = CGRectMake(0, 0, length, length);
         [_operateButton setContentMode:UIViewContentModeScaleAspectFit];
+        [_operateButton setTintColor:[UIColor whiteColor]];
+        [_operateButton addTarget:self action:@selector(buttonDidTap) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_operateButton];
         
         _numberLabel = [[UILabel alloc] init];
@@ -26,6 +28,11 @@
         [self addSubview:_numberLabel];
     }
     return self;
+}
+
+- (void)buttonDidTap {
+    NSLog(@"element layer get");
+    [self.delegate toolBarElementDidTap];
 }
 
 @end

@@ -9,13 +9,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol HHToolBarElementDelegate
+
+- (void)toolBarElementDidTap;
+
+@end
+
 @interface HHToolBarElement : UIView
 
 - (id)initWithButtonBoundLength:(NSUInteger)length numberTextFont:(UIFont *)font;
 
-@property(nonatomic)UILabel *numberLabel;
+@property(nonatomic) UILabel *numberLabel;
 
-@property(nonatomic)UIButton *operateButton;
+@property(nonatomic) UIButton *operateButton;
+
+@property(nonatomic, weak) id<HHToolBarElementDelegate> delegate;
+
 
 @end
 

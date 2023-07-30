@@ -6,15 +6,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HHDoubleColWorks.h"
+#import "HHBaseWorks.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HHWorksManager : NSObject
 
-- (NSArray *)doubleColWorksArray;
++ (instancetype)sharedManager;
 
-- (void)addDoubleColWorksInArray:(nonnull HHDoubleColWorks *)works;
+- (HHBaseWorks *)getWorksWithId:(NSString *)identification;
+
+- (HHBaseWorks *)getRandomWorks;
 
 @end
 

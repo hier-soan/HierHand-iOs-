@@ -6,15 +6,31 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "HHUserInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HHBaseWorks : NSObject
 
-@property(nonatomic, strong) HHUserInfo *userInfo;
+@property(nonatomic) HHUserInfo *owner;
 
-- (id)initWithUserInfo:(HHUserInfo *)userInfo;
+@property(nonatomic) NSString *identification;
+
+@property(nonatomic) NSUInteger getLikeNum;
+
+@property(nonatomic) NSUInteger commentNum;
+
+@property(nonatomic) NSUInteger collectNum;
+
+@property(nonatomic) NSUInteger shareNum;
+
+@property(nonatomic) NSUInteger height;
+
+// debug
+@property(nonatomic) UIColor *backgroundColor;
+
+- (id)initWithRandomContent;
 
 @end
 
