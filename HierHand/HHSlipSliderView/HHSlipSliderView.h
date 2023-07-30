@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HHSlipSliderView : UIView
 
++ (void)showSlipMenu;
+
 @end
 
 NS_ASSUME_NONNULL_END

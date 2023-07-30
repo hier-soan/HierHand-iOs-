@@ -93,6 +93,7 @@
 
 #pragma mark - navigation bar
 
+// 创建导航栏按钮
 - (UIView *)createNavBarTitleView {
     navBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
     
@@ -105,6 +106,7 @@
     return navBarView;
 }
 
+// 创建首页导航栏左右按钮
 - (void)createNavLeftButtonImageName {
     fastSettingListButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [fastSettingListButton setImage:[UIImage systemImageNamed:@"list.bullet"] forState:UIControlStateNormal];
@@ -118,30 +120,12 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:fastSearchButton];
 }
 
+// 首页右上角点击列表按钮
 - (void)fastSettingListButtonTap {
-    HHSlipSliderView *slipSilderView = [[HHSlipSliderView alloc] init];
-    
-    UIView *maskView = [[UIView alloc] init];
-    maskView.frame = [[UIScreen mainScreen] bounds];
-    maskView.backgroundColor = [UIColor grayColor];
-    [maskView setAlpha:0];
-    [[[[UIApplication sharedApplication] windows] objectAtIndex:0] addSubview:maskView];
-    
-    [[[[UIApplication sharedApplication] windows] objectAtIndex:0] addSubview:slipSilderView];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            CGRect frame = slipSilderView.frame;
-            frame.origin.x = 0;
-            slipSilderView.frame = frame;
-            
-            [maskView setAlpha:0.5];
-        } completion:^(BOOL finish) {
-            
-        }];
-    });
+    [HHSlipSliderView showSlipMenu];
 }
 
+// 创建首页顶部导航栏按钮
 - (UIButton *)createNavBarButtonWithCGRect:(CGRect)rect titleText:(NSString *)title {
     UIButton *button = [[UIButton alloc] initWithFrame:rect];
     [button setBackgroundColor:[UIColor whiteColor]];
