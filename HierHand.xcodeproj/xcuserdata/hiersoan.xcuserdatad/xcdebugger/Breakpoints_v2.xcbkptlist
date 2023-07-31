@@ -183,62 +183,107 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8EC812F7-97CC-416C-BDB0-62CADD8B6DDA"
+            uuid = "14FE2532-F039-4453-8567-BFCCEFDA1314"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HierHand/HHSlipSliderView/Controller/HHSlipSliderController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "-collectionView:layout:referenceSizeForHeaderInSection:"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "8EC812F7-97CC-416C-BDB0-62CADD8B6DDA - 6e3679811677df67"
+                  uuid = "14FE2532-F039-4453-8567-BFCCEFDA1314 - 37db0aab6b3a4f98"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[HHSlipSliderController collectionView:cellForItemAtIndexPath:]"
+                  symbolName = "-[HHSlipSliderController collectionView:layout:referenceSizeForHeaderInSection:]"
                   moduleName = "HierHand"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHSlipSliderView/Controller/HHSlipSliderController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "72">
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "104">
                </Location>
                <Location
-                  uuid = "8EC812F7-97CC-416C-BDB0-62CADD8B6DDA - 6e3679811677df21"
+                  uuid = "14FE2532-F039-4453-8567-BFCCEFDA1314 - 37db0aab6b3a4fb9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[HHSlipSliderController collectionView:cellForItemAtIndexPath:]"
+                  symbolName = "-[HHSlipSliderController collectionView:layout:referenceSizeForHeaderInSection:]"
                   moduleName = "HierHand"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHSlipSliderView/Controller/HHSlipSliderController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "72">
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "104">
                </Location>
                <Location
-                  uuid = "8EC812F7-97CC-416C-BDB0-62CADD8B6DDA - 6e3679811677de84"
+                  uuid = "14FE2532-F039-4453-8567-BFCCEFDA1314 - 37db0aab6b3a416f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[HHSlipSliderController collectionView:cellForItemAtIndexPath:]"
+                  symbolName = "-[HHSlipSliderController collectionView:layout:referenceSizeForHeaderInSection:]"
                   moduleName = "HierHand"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHSlipSliderView/Controller/HHSlipSliderController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "72">
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "14FE2532-F039-4453-8567-BFCCEFDA1314 - 37db0aab6b3a414e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHSlipSliderController collectionView:layout:referenceSizeForHeaderInSection:]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHSlipSliderView/Controller/HHSlipSliderController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "14FE2532-F039-4453-8567-BFCCEFDA1314 - 37db0aab6b3a410c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHSlipSliderController collectionView:layout:referenceSizeForHeaderInSection:]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHSlipSliderView/Controller/HHSlipSliderController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "14FE2532-F039-4453-8567-BFCCEFDA1314 - 37db0aab6b3a4ea1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHSlipSliderController collectionView:layout:referenceSizeForHeaderInSection:]"
+                  moduleName = "HierHand"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHSlipSliderView/Controller/HHSlipSliderController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "104">
                </Location>
             </Locations>
          </BreakpointContent>

@@ -44,10 +44,25 @@
         
         // 菜单collection view
         HHSlipSliderCollectionLayout *layout = [[HHSlipSliderCollectionLayout alloc] init];
-        _collectionView = [[UICollectionView alloc] initWithFrame:self.frame collectionViewLayout:layout];
+        layout.viewWidth = self.slipMenu.frame.size.width;
+        layout.numberOfCol = 3;
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        [array addObject:@(3)];
+        [array addObject:@(7)];
+        [array addObject:@(3)];
+        layout.numberOfItemsInSections = array;
+        
+//        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+//        layout.minimumLineSpacing = 5;
+//        layout.minimumInteritemSpacing = 5;
+//        layout.itemSize = CGSizeMake(40, 40);
+//        layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+        
+        _collectionView = [[UICollectionView alloc] initWithFrame:self.slipMenu.frame collectionViewLayout:layout];
         _collectionView.frame = self.slipMenu.frame;
         [self.slipMenu addSubview:_collectionView];
         [_collectionView registerClass:[HHSlipSliderItem class] forCellWithReuseIdentifier:@"HHSlipSliderItem"];
+        _collectionView.backgroundColor = [UIColor whiteColor];
         
         // 添加点击手势识别
         _tapGesture = [[UITapGestureRecognizer alloc] init];
@@ -78,6 +93,7 @@
             CGRect temp = weakSelf.slipMenu.frame;
             temp.origin = CGPointMake(0, 0);
             weakSelf.slipMenu.frame = temp;
+            weakSelf.collectionView.frame = temp;
             
             // 灰色蒙版加深
             weakSelf.grayMask.alpha = 0.8f;
@@ -95,6 +111,7 @@
             CGRect temp = weakSelf.slipMenu.frame;
             temp.origin = CGPointMake(-0.75 * [[UIScreen mainScreen] bounds].size.width, 0);
             weakSelf.slipMenu.frame = temp;
+            weakSelf.collectionView.frame = temp;
             
             // 灰色蒙版恢复
             weakSelf.grayMask.alpha = 0.f;

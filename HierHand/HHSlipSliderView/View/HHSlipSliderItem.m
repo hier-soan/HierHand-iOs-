@@ -30,13 +30,14 @@ const CGFloat titleFontSize = 12.f;
         _icon = [[UIImageView alloc] init];
         _icon.frame = CGRectMake(0, 0, itemIconWidth, itemHeight);
         [_icon setImage:[UIImage systemImageNamed:@"list.bullet.rectangle.portrait"]];
-        [self addSubview:_icon];
+        [self.contentView addSubview:_icon];
         
         // item标题
         _title = [[UILabel alloc] init];
         [_title setText:@"默认标题"];
+        [_title setTextColor:[UIColor blackColor]];
         [_title setFont:[UIFont systemFontOfSize:titleFontSize]];
-        [self addSubview:_title];
+        [self.contentView addSubview:_title];
         
         // 初始化点击手势识别
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] init];

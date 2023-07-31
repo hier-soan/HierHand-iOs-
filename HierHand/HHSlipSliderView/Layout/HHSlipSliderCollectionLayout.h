@@ -11,6 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HHSlipSliderCollectionLayout : UICollectionViewLayout
 
+@property(nonatomic) NSUInteger viewWidth;
+
+@property(nonatomic) NSUInteger numberOfCol;
+
+@property(nonatomic) NSMutableArray *numberOfItemsInSections;
+
 - (NSMutableArray *)numberOfItemsInSections;
 
 @end

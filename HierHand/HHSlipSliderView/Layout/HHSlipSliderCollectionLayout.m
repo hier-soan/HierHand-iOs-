@@ -9,19 +9,19 @@
 
 @interface HHSlipSliderCollectionLayout()
 
-@property(nonatomic) NSUInteger numberOfCol;
-
 @property(nonatomic) NSUInteger numberOfItems;
-
-@property(nonatomic) NSMutableArray *numberOfItemsInSections;
-
-@property(nonatomic) NSUInteger viewWidth;
 
 @property(nonatomic) NSUInteger itemSpacing;
 
 @property(nonatomic) NSUInteger edgeInset;
 
 @property(nonatomic) NSMutableArray *attributesArray;
+
+@property(nonatomic) NSUInteger sectionInset;
+
+@property(nonatomic) NSUInteger headerHeight;
+
+@property(nonatomic) NSUInteger rootUserHeaderHeight;
 
 @end
 
@@ -65,24 +65,54 @@
 #pragma mark - private methods
 
 - (void)initVariable {
-    _numberOfCol = 3;
     _itemSpacing = 10;
     _edgeInset = 10;
+    _sectionInset = 20;
+    _headerHeight = 50;
+    _rootUserHeaderHeight = 100;
 }
 
 - (void)calculateAttributes {
     _attributesArray = [[NSMutableArray alloc] init];
+    // 上一个section的高度
+    CGFloat lastSectionHeight = 0;
+    CGFloat itemWidth = (_viewWidth - 2 * _edgeInset - (_numberOfCol - 1) * _itemSpacing) / _numberOfCol;
     
-    CGFloat itemWidth = _viewWidth / _numberOfCol - 2 * _edgeInset + (_numberOfCol - 1) * _itemSpacing;
     for (int i = 0; i < [_numberOfItemsInSections count]; i++) {
+        CGFloat temp = 0;
+        
+        if (i == 0) {
+            UICollectionViewLayoutAttributes *rootUserHeaderAttributes = nil;
+            rootUserHeaderAttributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
+            rootUserHeaderAttributes.frame = CGRectMake(0, lastSectionHeight + _sectionInset, _viewWidth, _rootUserHeaderHeight);
+            [_attributesArray addObject:rootUserHeaderAttributes];
+            lastSectionHeight += _rootUserHeaderHeight + _sectionInset;
+        }
+        
+        if (i > 0) {
+            UICollectionViewLayoutAttributes *headerAttributes = nil;
+            
+            headerAttributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
+            
+            headerAttributes.frame = CGRectMake(0, lastSectionHeight + _sectionInset, 200, _headerHeight);
+            [_attributesArray addObject:headerAttributes];
+            lastSectionHeight += _headerHeight + _sectionInset;
+        }
+        
         for (int j = 0; j < [_numberOfItemsInSections[i] unsignedLongValue]; j++) {
-            NSUInteger num = [_numberOfItemsInSections[i] unsignedLongValue];
+            
             CGFloat itemX = _edgeInset + (j % _numberOfCol) * _itemSpacing + (j % _numberOfCol) * itemWidth;
-            CGFloat itemY = _edgeInset + (j / _numberOfCol) * _itemSpacing + (j / _numberOfCol) * itemWidth;
+            
+            CGFloat itemY = _edgeInset + (j / _numberOfCol) * _itemSpacing + (j / _numberOfCol) * itemWidth + lastSectionHeight + i * _itemSpacing;
             UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForRow:j inSection:i]];
             attributes.frame = CGRectMake(itemX, itemY, itemWidth, itemWidth);
             [_attributesArray addObject:attributes];
+            
+            // 每次都记录一次高度
+            temp = itemY + itemWidth;
         }
+        // 一个section过后，将值赋给lastSectionHeight
+        lastSectionHeight = temp;
     }
 }
 

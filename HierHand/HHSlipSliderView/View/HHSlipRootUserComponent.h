@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HHSlipRootUserComponent : UIView
+@interface HHSlipRootUserComponent : UICollectionReusableView
 
 @property(nonatomic, weak) void(^showUserDetial)(void);
 

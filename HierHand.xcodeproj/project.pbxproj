@@ -32,6 +32,7 @@
 		CBB212C22A7680AE00444BFF /* HHSlipSliderCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB212C12A7680AE00444BFF /* HHSlipSliderCollectionLayout.m */; };
 		CBB212C82A769FA600444BFF /* HHSlipRootUserComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB212C72A769FA600444BFF /* HHSlipRootUserComponent.m */; };
 		CBB212CB2A76CA7600444BFF /* HHSlipSliderSectionHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB212CA2A76CA7600444BFF /* HHSlipSliderSectionHeaderCollectionReusableView.m */; };
+		CBB212D22A78084F00444BFF /* HHProfilePageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB212D12A78084F00444BFF /* HHProfilePageHeader.m */; };
 		CBC7C7492A6D4051001C3D71 /* HHHomeDoubleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC7C7482A6D4051001C3D71 /* HHHomeDoubleCollectionViewCell.m */; };
 		CBC7C74C2A6D60C9001C3D71 /* HHUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC7C74B2A6D60C9001C3D71 /* HHUserInfo.m */; };
 		CBC7C7502A6D6111001C3D71 /* HHBaseWorks.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC7C74F2A6D6111001C3D71 /* HHBaseWorks.m */; };
@@ -98,6 +99,8 @@
 		CBB212C72A769FA600444BFF /* HHSlipRootUserComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSlipRootUserComponent.m; sourceTree = "<group>"; };
 		CBB212C92A76CA7600444BFF /* HHSlipSliderSectionHeaderCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSlipSliderSectionHeaderCollectionReusableView.h; sourceTree = "<group>"; };
 		CBB212CA2A76CA7600444BFF /* HHSlipSliderSectionHeaderCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSlipSliderSectionHeaderCollectionReusableView.m; sourceTree = "<group>"; };
+		CBB212D02A78084F00444BFF /* HHProfilePageHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHProfilePageHeader.h; sourceTree = "<group>"; };
+		CBB212D12A78084F00444BFF /* HHProfilePageHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHProfilePageHeader.m; sourceTree = "<group>"; };
 		CBC7C7472A6D4051001C3D71 /* HHHomeDoubleCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHHomeDoubleCollectionViewCell.h; sourceTree = "<group>"; };
 		CBC7C7482A6D4051001C3D71 /* HHHomeDoubleCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHHomeDoubleCollectionViewCell.m; sourceTree = "<group>"; };
 		CBC7C74A2A6D60C9001C3D71 /* HHUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHUserInfo.h; sourceTree = "<group>"; };
@@ -211,12 +214,8 @@
 		CB0CCD552A70F21F000CB46B /* HHProfilePageVIew */ = {
 			isa = PBXGroup;
 			children = (
-				CB0CCD562A70F262000CB46B /* HHProfilePageController.h */,
-				CB0CCD572A70F262000CB46B /* HHProfilePageController.m */,
-				CB0CCD592A70F3E2000CB46B /* HHProfileFlowElement.h */,
-				CB0CCD5A2A70F3E2000CB46B /* HHProfileFlowElement.m */,
-				CB0CCD672A71472D000CB46B /* HHProfileBackgroundView.h */,
-				CB0CCD682A71472D000CB46B /* HHProfileBackgroundView.m */,
+				CBB212CF2A7800D700444BFF /* view */,
+				CBB212CD2A7800BE00444BFF /* controller */,
 			);
 			path = HHProfilePageVIew;
 			sourceTree = "<group>";
@@ -276,6 +275,28 @@
 				CBB212BB2A76801700444BFF /* HHSlipSliderController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		CBB212CD2A7800BE00444BFF /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB0CCD562A70F262000CB46B /* HHProfilePageController.h */,
+				CB0CCD572A70F262000CB46B /* HHProfilePageController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		CBB212CF2A7800D700444BFF /* view */ = {
+			isa = PBXGroup;
+			children = (
+				CB0CCD592A70F3E2000CB46B /* HHProfileFlowElement.h */,
+				CB0CCD5A2A70F3E2000CB46B /* HHProfileFlowElement.m */,
+				CB0CCD672A71472D000CB46B /* HHProfileBackgroundView.h */,
+				CB0CCD682A71472D000CB46B /* HHProfileBackgroundView.m */,
+				CBB212D02A78084F00444BFF /* HHProfilePageHeader.h */,
+				CBB212D12A78084F00444BFF /* HHProfilePageHeader.m */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		CBC7C7462A6D400D001C3D71 /* HHCustomVIewComponent */ = {
@@ -410,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB212D22A78084F00444BFF /* HHProfilePageHeader.m in Sources */,
 				CB0CCD5B2A70F3E2000CB46B /* HHProfileFlowElement.m in Sources */,
 				CBE6A7872A6E3394003F2998 /* HHSelectedToolBar.m in Sources */,
 				CBB212C82A769FA600444BFF /* HHSlipRootUserComponent.m in Sources */,
