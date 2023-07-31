@@ -15,6 +15,14 @@
 - (id)init {
     self = [super init];
     if (self) {
+        
+    }
+    return self;
+}
+
+#pragma mark - lazy load
+- (UIButton *)followButton {
+    if (!_followButton) {
         _followButton = [[UIButton alloc] init];
         
         CGFloat buttonX = CGRectGetMaxX(self.avatarView.frame) / 2 -(HHSelectedFollowButtonWidth / 2);
@@ -23,11 +31,6 @@
         
         [_followButton setImage:[UIImage systemImageNamed:@"plus"] forState:UIControlStateNormal];
         [_followButton setImage:[UIImage systemImageNamed:@"checkmark"] forState:UIControlStateSelected];
-        
-        // no working
-        CGRect tempFrame = _followButton.imageView.frame;
-        tempFrame.size = CGSizeMake(tempFrame.size.width * 0.75, tempFrame.size.height * 0.75);
-        _followButton.imageView.frame = tempFrame;
         
         [_followButton.imageView setTintColor:[UIColor whiteColor]];
         _followButton.backgroundColor = [UIColor colorWithRed:1 green:0.2 blue:0.2 alpha:1];
@@ -39,10 +42,14 @@
         _followButton.layer.borderColor = [UIColor clearColor].CGColor;
         _followButton.layer.masksToBounds = NO;
         
-        [self addSubview:_followButton];
+        //        // no working
+        //        CGRect tempFrame = _followButton.imageView.frame;
+        //        tempFrame.size = CGSizeMake(tempFrame.size.width * 0.75, tempFrame.size.height * 0.75);
+        //        _followButton.imageView.frame = tempFrame;
         
+        [self addSubview:_followButton];
     }
-    return self;
+    return _followButton;
 }
 
 - (void)followButtonTap {

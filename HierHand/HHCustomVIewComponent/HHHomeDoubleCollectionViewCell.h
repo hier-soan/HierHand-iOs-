@@ -14,10 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HHHomeDoubleCollectionViewCell : UICollectionViewCell
 
-@property(nonatomic)NSInteger _height;
-//
-//- (void)setCellStateUserInfo:(HHUserInfo *)userInfo;
-
 - (void)setCellStateWorksInfo:(HHBaseWorks *)works;
 
 - (void)setCellLayout;

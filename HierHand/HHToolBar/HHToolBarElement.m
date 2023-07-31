@@ -12,6 +12,7 @@
 - (id)initWithButtonBoundLength:(NSUInteger)length numberTextFont:(UIFont *)font {
     self = [super init];
     if (self) {
+        // 点击按钮
         _operateButton = [[UIButton alloc] init];
         _operateButton.frame = CGRectMake(0, 0, length, length);
         [_operateButton setContentMode:UIViewContentModeScaleAspectFit];
@@ -19,8 +20,8 @@
         [_operateButton addTarget:self action:@selector(buttonDidTap) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_operateButton];
         
+        // 数量标签
         _numberLabel = [[UILabel alloc] init];
-        
         [_numberLabel setFont:font];
         _numberLabel.frame = CGRectMake(0, length, length, 10);
         [_numberLabel setTextColor:[UIColor whiteColor]];

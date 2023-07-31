@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)showSlipMenu;
 
+- (void)setCollectionViewDelegate:(UIViewController<UICollectionViewDelegate, UICollectionViewDataSource> *)controller;
+
 @end
 
 NS_ASSUME_NONNULL_END

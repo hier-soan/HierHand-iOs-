@@ -11,13 +11,22 @@
 #import "HHMessageController.h"
 #import "HHMeController.h"
 
-@interface HHTabBarBaseController () {
-    HHHomeViewController *homeViewController;
-    HHSelectedController *selectedController;
-    HHMessageController *messageController;
-    HHMeController *meController;
-    UINavigationController *test;
-}
+@interface HHTabBarBaseController()
+
+// 首页
+@property(nonatomic) HHHomeViewController *homeViewController;
+
+// 精选
+@property(nonatomic) HHSelectedController *selectedController;
+
+// 消息
+@property(nonatomic) HHMessageController *messageController;
+
+// 我
+@property(nonatomic) HHMeController *meController;
+
+
+@property(nonatomic) UINavigationController *homeNavController;
 
 @end
 
@@ -27,16 +36,16 @@
     self = [super init];
     if (self) {
         
-        homeViewController = [[HHHomeViewController alloc] init];
-        selectedController = [[HHSelectedController alloc] init];
-        messageController = [[HHMessageController alloc] init];
-        meController = [[HHMeController alloc] init];
+        _homeViewController = [[HHHomeViewController alloc] init];
+        _selectedController = [[HHSelectedController alloc] init];
+        _messageController = [[HHMessageController alloc] init];
+        _meController = [[HHMeController alloc] init];
         
-        test = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+        _homeNavController = [[UINavigationController alloc] initWithRootViewController:_homeViewController];
         self.tabBar.translucent = NO;
-        test.tabBarItem = homeViewController.tabBarItem;
+        _homeNavController.tabBarItem = _homeViewController.tabBarItem;
         
-        [self setViewControllers:@[test, selectedController, messageController, meController]];
+        [self setViewControllers:@[_homeNavController, _selectedController, _messageController, _meController]];
         [self.tabBar setBackgroundColor:[UIColor whiteColor]];
     }
     return self;
@@ -48,15 +57,5 @@
     
     
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -7,13 +7,15 @@
 
 #import "HHHomeDoubleCollectionViewCell.h"
 
-@interface HHHomeDoubleCollectionViewCell () {
-    UIImageView *_overviewImageView;
-    UIImageView *_iconImageView;
-    UILabel *_userNameLabel;
-    
-    HHUserInfo *_userInfo;
-}
+@interface HHHomeDoubleCollectionViewCell()
+
+@property(nonatomic) UIImageView *overviewImageView;
+
+@property(nonatomic) UIImageView *iconImageView;
+
+@property(nonatomic) UILabel *userNameLabel;
+
+@property(nonatomic) HHUserInfo *userInfo;
 
 @property(nonatomic) HHWorksManager *worksManager;
 
@@ -26,65 +28,78 @@
 -(id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        // 基本UI控件初始化
-        _overviewImageView = [[UIImageView alloc] init];
-        [self.contentView addSubview:_overviewImageView];
-        _iconImageView = [[UIImageView alloc] init];
-        [self.contentView addSubview:_iconImageView];
-        _userNameLabel = [[UILabel alloc] init];
-        [self.contentView addSubview:_userNameLabel];
-        _userNameLabel.font = [UIFont systemFontOfSize:12];
-        
         // collection view cell的外观设置
         self.contentView.backgroundColor = [UIColor whiteColor];
-        
-        // 用户信息初始化
-        _userInfo = [[HHUserInfo alloc] init];
-        
-        _worksManager = [HHWorksManager sharedManager];
-        
-      //  [self setCellLayout];
-        
         [self setCornerRadius:7.0f boardWidth:0.7f];
+        
+        //  [self setCellLayout];
     }
     return self;
+}
+
+#pragma mark - lazy load
+// 概览图
+- (UIImageView *)overviewImageView {
+    if (!_overviewImageView) {
+        _overviewImageView = [[UIImageView alloc] init];
+        [self.contentView addSubview:_overviewImageView];
+    }
+    return _overviewImageView;
+}
+
+// 用户头像
+- (UIImageView *)iconImageView {
+    if (!_iconImageView) {
+        _iconImageView = [[UIImageView alloc] init];
+        [self.contentView addSubview:_iconImageView];
+    }
+    return _iconImageView;
+}
+
+// 用户名
+- (UILabel *)userNameLabel {
+    if (!_userNameLabel) {
+        _userNameLabel = [[UILabel alloc] init];
+        _userNameLabel.font = [UIFont systemFontOfSize:12];
+        [self.contentView addSubview:_userNameLabel];
+    }
+    return _userNameLabel;
+}
+
+// 用户信息
+- (HHUserInfo *)userInfo {
+    if (!_userInfo) {
+        _userInfo = [[HHUserInfo alloc] init];
+    }
+    return _userInfo;
 }
 
 #pragma mark - life cycle
 - (void)prepareForReuse {
     [super prepareForReuse];
-//    [self setCellLayout];
-//    NSLog(@"cell height is = %d", _userInfo.height);
 }
 
 #pragma mark - private methods
-//- (void)setCellLayout {
-//    int overviewHeight = (int)_userInfo.height - 30;
-//    int cellWidth = ([[UIScreen mainScreen] bounds].size.width - 50) / 2;
-//    _overviewImageView.frame = CGRectMake(5, 5, cellWidth, overviewHeight);
-//    _iconImageView.image = [UIImage systemImageNamed:_userInfo.userIconImageName];
-//    _iconImageView.frame = CGRectMake(5, overviewHeight + 5, 25, 25);
-//    _userNameLabel.frame = CGRectMake(CGRectGetMaxX(_iconImageView.frame), CGRectGetMinY(_iconImageView.frame), cellWidth - _iconImageView.frame.size.width, 20);
-//}
+
 - (void)setCellLayout {
-    NSUInteger overviewHeight = _worksInfo.height - 30;
+    NSUInteger overviewHeight = self.worksInfo.height - 30;
     NSUInteger cellWidth = ([[UIScreen mainScreen] bounds].size.width - 50) / 2;
-    _overviewImageView.frame = CGRectMake(5, 5, cellWidth, overviewHeight);
-    _iconImageView.image = [UIImage systemImageNamed:_userInfo.userIconImageName];
-    _iconImageView.frame = CGRectMake(5, overviewHeight + 5, 25, 25);
-    _userNameLabel.frame = CGRectMake(CGRectGetMaxX(_iconImageView.frame), CGRectGetMinY(_iconImageView.frame), cellWidth - _iconImageView.frame.size.width, 20);
+    self.overviewImageView.frame = CGRectMake(5, 5, cellWidth, overviewHeight);
+    self.iconImageView.image = [UIImage systemImageNamed:self.userInfo.userIconImageName];
+    self.iconImageView.frame = CGRectMake(5, overviewHeight + 5, 25, 25);
+    self.userNameLabel.frame = CGRectMake(CGRectGetMaxX(self.iconImageView.frame), CGRectGetMinY(self.iconImageView.frame), cellWidth - self.iconImageView.frame.size.width, 20);
 }
 
 - (void)setCellStateWorksInfo:(HHBaseWorks *)works {
-    _worksInfo = works;
-    _userInfo = works.owner;
-    _userNameLabel.text = _userInfo.userName;
+    self.worksInfo = works;
+    self.userInfo = works.owner;
+    self.userNameLabel.text = self.userInfo.userName;
     [self setCellLayout];
 }
 
 
 - (void)setCellShowType:(HHNavBarState) state {
-    [_overviewImageView setBackgroundColor:_worksInfo.backgroundColor];
+    [self.overviewImageView setBackgroundColor:self.worksInfo.backgroundColor];
 }
 
 - (void)setCornerRadius:(CGFloat)radius boardWidth:(CGFloat)width {

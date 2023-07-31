@@ -27,7 +27,9 @@ typedef NS_ENUM(NSInteger, HHNavBarState);
 @property(nonatomic, weak) id<HHFlowTightlyLayouDelegate> delegate;
 
 @property(nonatomic) NSUInteger numberOfFollowItems;
+
 @property(nonatomic) NSUInteger numberOfFoundItems;
+
 @property(nonatomic) NSUInteger numberOfSameCityItems;
 
 @property(nonatomic) CGFloat itemWidth;

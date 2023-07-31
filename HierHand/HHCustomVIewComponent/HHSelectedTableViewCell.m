@@ -41,22 +41,6 @@
         // 要用委托的方法来创建高度
 //        self.contentView.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 800); // problem
         
-        _toolBar = [[HHSelectedToolBar alloc] init];
-        CGRect tempFrame = _toolBar.frame;
-        tempFrame.origin.x = [[UIScreen mainScreen] bounds].size.width - _toolBar.frame.size.width;
-        tempFrame.origin.y = 300;
-        _toolBar.frame = tempFrame;
-        _toolBar.avatar.delegate = self;
-        _toolBar.delegate = self;
-        // 置最上层，防止被视频遮住
-        _toolBar.layer.zPosition = MAXFLOAT;
-        [self.contentView addSubview:_toolBar];
-        
-        _detailComponent = [[HHSelectedDetailComponent alloc] init];
-        // 置最上层，防止被视频遮住
-        _detailComponent.layer.zPosition = MAXFLOAT;
-        [self.contentView addSubview:_detailComponent];
-        _ownerUser = [[HHUserInfo alloc] init];
         
         // 添加点击手势识别 - 点赞、暂停、收回评论
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTapScreen)];
@@ -70,6 +54,7 @@
     return self;
 }
 
+#pragma mark - life cycle
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -85,6 +70,36 @@
     [super prepareForReuse];
     
     [self reloadBackground];
+}
+
+#pragma mark - lazy load
+// 右侧工具栏（点赞、评论等）
+- (HHSelectedToolBar *)toolBar {
+    if (!_toolBar) {
+        _toolBar = [[HHSelectedToolBar alloc] init];
+        CGRect tempFrame = _toolBar.frame;
+        tempFrame.origin.x = [[UIScreen mainScreen] bounds].size.width - _toolBar.frame.size.width;
+        tempFrame.origin.y = 300;
+        _toolBar.frame = tempFrame;
+        _toolBar.avatar.delegate = self;
+        _toolBar.delegate = self;
+        // 置最上层，防止被视频遮住
+        _toolBar.layer.zPosition = MAXFLOAT;
+        [self.contentView addSubview:_toolBar];
+    }
+    return _toolBar;
+}
+
+// 左下方描述
+- (HHSelectedDetailComponent *)detailComponent {
+    if (!_detailComponent) {
+        _detailComponent = [[HHSelectedDetailComponent alloc] init];
+        // 置最上层，防止被视频遮住
+        _detailComponent.layer.zPosition = MAXFLOAT;
+        [self.contentView addSubview:_detailComponent];
+        _ownerUser = [[HHUserInfo alloc] init];
+    }
+    return _detailComponent;
 }
 
 #pragma mark - public methods

@@ -10,31 +10,40 @@
 #import "HHSelectedController.h"
 #import "HHSlipSliderView.h"
 
-@interface HHHomeViewController () {
-    UIView *navBarView;
-    UIButton *followButton;
-    UIButton *foundButton;
-    UIButton *cityButton;
-    
-    UIButton *fastSettingListButton;
-    UIButton *fastSearchButton;
-    
-    UICollectionView *homeCollectionView;
-    UICollectionViewFlowLayout *flowLayout;
-    HHFlowTightlyLayout *tightlyFlowLayout;
-    UICollectionViewController *co;
-    
-    HHUserManager *userManager;
-    HHNavBarState navBarState;
-}
+@interface HHHomeViewController()
 
+// 导航栏视图
+@property(nonatomic) UIView *navBarView;
+
+// 关注
+@property(nonatomic) UIButton *followButton;
+
+// 发现
+@property(nonatomic) UIButton *foundButton;
+
+// 同城
+@property(nonatomic) UIButton *cityButton;
+
+// 左上角侧滑菜单
+@property(nonatomic) UIButton *fastSettingListButton;
+
+// 快速搜索
+@property(nonatomic) UIButton *fastSearchButton;
+
+// 双列视图
+@property(nonatomic) UICollectionView *homeCollectionView;
+
+// 双列布局
+@property(nonatomic) HHFlowTightlyLayout *tightlyFlowLayout;
+
+// 用户model
+@property(nonatomic) HHUserManager *userManager;
+
+// 首页状态
+@property(nonatomic) HHNavBarState navBarState;
+
+// 显示作者的第几个作品，后续优化为：作者最新作品
 @property(nonatomic) NSUInteger worksIndex;
-
-- (UIView *)createNavBarTitleView;
-
-- (UIButton *)createNavBarButtonWithCGRect:(CGRect)rect titleText:(NSString *)title;
-
-- (void)createNavLeftButtonImageName;
 
 @end
 
@@ -45,7 +54,7 @@
     if (self) {
         self.tabBarItem.title = @"首页";
     
-        userManager = [HHUserManager sharedUserManager];
+        _userManager = [HHUserManager sharedUserManager];
         
         _worksIndex = 0;
     }
@@ -55,33 +64,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     self.navigationController.navigationBar.translucent = NO;
-    
-    tightlyFlowLayout = [[HHFlowTightlyLayout alloc] init];
-    tightlyFlowLayout.delegate = self;
-    tightlyFlowLayout.numberOfFollowItems = [userManager followCount];
-    tightlyFlowLayout.numberOfFoundItems = [userManager foundCount];
-    tightlyFlowLayout.numberOfSameCityItems = [userManager sameCityCount];
-    homeCollectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:tightlyFlowLayout];
-
-    [self.view addSubview:homeCollectionView];
-    homeCollectionView.delegate = self;
-    homeCollectionView.dataSource = self;
-    [homeCollectionView setBackgroundColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1]];
-    
-    
-    [homeCollectionView registerClass:[HHHomeDoubleCollectionViewCell class] forCellWithReuseIdentifier:@"HHHomeDoubleCollectionViewCell"];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     
     self.navigationItem.titleView = [self createNavBarTitleView];
     
-    [followButton addTarget:self action:@selector(followButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    [foundButton addTarget:self action:@selector(foundButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    [cityButton addTarget:self action:@selector(cityButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    followButton.selected = YES;
-    navBarState = HHNavFollowButtonClick;
+    // 初始化首页状态
+    _followButton.selected = YES;
+    _navBarState = HHNavFollowButtonClick;
+}
 
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+#pragma mark - lazy load
+- (UICollectionView *)homeCollectionView {
+    if (!_homeCollectionView) {
+        // 初始化双列布局
+        _tightlyFlowLayout = [[HHFlowTightlyLayout alloc] init];
+        _tightlyFlowLayout.delegate = self;
+        _tightlyFlowLayout.numberOfFollowItems = [_userManager followCount];
+        _tightlyFlowLayout.numberOfFoundItems = [_userManager foundCount];
+        _tightlyFlowLayout.numberOfSameCityItems = [_userManager sameCityCount];
+       
+        _homeCollectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:_tightlyFlowLayout];
+        _homeCollectionView.delegate = self;
+        _homeCollectionView.dataSource = self;
+        [_homeCollectionView setBackgroundColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1]];
+        [self.view addSubview:_homeCollectionView];
+        
+        [_homeCollectionView registerClass:[HHHomeDoubleCollectionViewCell class] forCellWithReuseIdentifier:@"HHHomeDoubleCollectionViewCell"];
+    }
+    return _homeCollectionView;
 }
 
 #pragma mark - life cycle
@@ -95,29 +106,34 @@
 
 // 创建导航栏按钮
 - (UIView *)createNavBarTitleView {
-    navBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
+    _navBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
     
     [self createNavLeftButtonImageName];
     
-    followButton = [self createNavBarButtonWithCGRect:CGRectMake(25, 0, 80, 30) titleText:@"关注"];
-    foundButton = [self createNavBarButtonWithCGRect:CGRectMake(105, 0, 80, 30) titleText:@"发现"];
-    cityButton = [self createNavBarButtonWithCGRect:CGRectMake(185, 0, 80, 30) titleText:@"同城"];
+    _followButton = [self createNavBarButtonWithCGRect:CGRectMake(25, 0, 80, 30) titleText:@"关注"];
+    [_followButton addTarget:self action:@selector(followButtonClick) forControlEvents:UIControlEventTouchUpInside];
     
-    return navBarView;
+    _foundButton = [self createNavBarButtonWithCGRect:CGRectMake(105, 0, 80, 30) titleText:@"发现"];
+    [_foundButton addTarget:self action:@selector(foundButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    _cityButton = [self createNavBarButtonWithCGRect:CGRectMake(185, 0, 80, 30) titleText:@"同城"];
+    [_cityButton addTarget:self action:@selector(cityButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    return _navBarView;
 }
 
 // 创建首页导航栏左右按钮
 - (void)createNavLeftButtonImageName {
-    fastSettingListButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [fastSettingListButton setImage:[UIImage systemImageNamed:@"list.bullet"] forState:UIControlStateNormal];
-    [fastSettingListButton setBackgroundColor:[UIColor whiteColor]];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:fastSettingListButton];
-    [fastSettingListButton addTarget:self action:@selector(fastSettingListButtonTap) forControlEvents:UIControlEventTouchUpInside];
+    _fastSettingListButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [_fastSettingListButton setImage:[UIImage systemImageNamed:@"list.bullet"] forState:UIControlStateNormal];
+    [_fastSettingListButton setBackgroundColor:[UIColor whiteColor]];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_fastSettingListButton];
+    [_fastSettingListButton addTarget:self action:@selector(fastSettingListButtonTap) forControlEvents:UIControlEventTouchUpInside];
     
-    fastSearchButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [fastSearchButton setImage:[UIImage systemImageNamed:@"magnifyingglass"] forState:UIControlStateNormal];
-    [fastSearchButton setBackgroundColor:[UIColor whiteColor]];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:fastSearchButton];
+    _fastSearchButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [_fastSearchButton setImage:[UIImage systemImageNamed:@"magnifyingglass"] forState:UIControlStateNormal];
+    [_fastSearchButton setBackgroundColor:[UIColor whiteColor]];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_fastSearchButton];
 }
 
 // 首页右上角点击列表按钮
@@ -132,21 +148,21 @@
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [navBarView addSubview:button];
+    [_navBarView addSubview:button];
     return button;
 }
 
 #pragma mark - collection view data source
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (navBarState == HHNavFollowButtonClick) {
-        return [userManager followCount];
-    } else if (navBarState == HHNavCityButtonClick) {
-        return [userManager sameCityCount];
+    if (_navBarState == HHNavFollowButtonClick) {
+        return [_userManager followCount];
+    } else if (_navBarState == HHNavCityButtonClick) {
+        return [_userManager sameCityCount];
     } else {
-        return [userManager foundCount];
+        return [_userManager foundCount];
     }
-    return [userManager followCount];
+    return [_userManager followCount];
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -154,19 +170,19 @@
     HHHomeDoubleCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HHHomeDoubleCollectionViewCell" forIndexPath:indexPath];
     
     HHUserInfo *info;
-    if (navBarState == HHNavFollowButtonClick) {
-        info = userManager.getToFollowUser[indexPath.row];
-    } else if (navBarState == HHNavCityButtonClick) {
-        info = userManager.getSameCityUser[indexPath.row];
+    if (_navBarState == HHNavFollowButtonClick) {
+        info = _userManager.getToFollowUser[indexPath.row];
+    } else if (_navBarState == HHNavCityButtonClick) {
+        info = _userManager.getSameCityUser[indexPath.row];
     } else {
-        info = userManager.getFoundUser[indexPath.row];
+        info = _userManager.getFoundUser[indexPath.row];
     }
     
     // 选取最新作品，后续会改进最新作品的系数
     NSString *worksId = info.workIdentifications[_worksIndex];
     HHBaseWorks *works = [[HHWorksManager sharedManager] getWorksWithId:worksId];
     [cell setCellStateWorksInfo:works];
-    [cell setCellShowType:navBarState];
+    [cell setCellShowType:_navBarState];
     
     return cell;
 }
@@ -182,22 +198,22 @@
     homeSelectedController.isHomeComeInFirstTime = YES;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    switch (navBarState) {
+    switch (_navBarState) {
         case HHNavFollowButtonClick: {
             self.navigationItem.backButtonTitle = @"关注";
-            HHUserInfo *user = userManager.getToFollowUser[indexPath.row];
+            HHUserInfo *user = _userManager.getToFollowUser[indexPath.row];
             homeSelectedController.homeInUser = user.userName;
             homeSelectedController.homeInWork = user.workIdentifications[_worksIndex];
         }break;
         case HHNavCityButtonClick: {
             self.navigationItem.backButtonTitle = @"同城";
-            HHUserInfo *user = userManager.getSameCityUser[indexPath.row];
+            HHUserInfo *user = _userManager.getSameCityUser[indexPath.row];
             homeSelectedController.homeInUser = user.userName;
             homeSelectedController.homeInWork = user.workIdentifications[_worksIndex];
         }break;
         case HHNavFoundButtonClick: {
             self.navigationItem.backButtonTitle = @"发现";
-            HHUserInfo *user = userManager.getFoundUser[indexPath.row];
+            HHUserInfo *user = _userManager.getFoundUser[indexPath.row];
             homeSelectedController.homeInUser = user.userName;
             homeSelectedController.homeInWork = user.workIdentifications[_worksIndex];
         }break;
@@ -215,12 +231,12 @@
 // layout 比collection cell先执行
 - (CGFloat)HeightForItemWithIndexPath:(NSIndexPath *)indexPath itemWidth:(CGFloat)width{
     HHUserInfo *info;
-    if (navBarState == HHNavFollowButtonClick && indexPath.row < [userManager followCount]) { //
-        info = userManager.getToFollowUser[indexPath.row];
-    } else if (navBarState == HHNavCityButtonClick && indexPath.row < [userManager sameCityCount]) { //
-        info = userManager.getSameCityUser[indexPath.row];
-    } else if (navBarState == HHNavFoundButtonClick && indexPath.row < [userManager foundCount]) { //
-        info = userManager.getFoundUser[indexPath.row];
+    if (_navBarState == HHNavFollowButtonClick && indexPath.row < [_userManager followCount]) { //
+        info = _userManager.getToFollowUser[indexPath.row];
+    } else if (_navBarState == HHNavCityButtonClick && indexPath.row < [_userManager sameCityCount]) { //
+        info = _userManager.getSameCityUser[indexPath.row];
+    } else if (_navBarState == HHNavFoundButtonClick && indexPath.row < [_userManager foundCount]) { //
+        info = _userManager.getFoundUser[indexPath.row];
     }
     
     if (info) {
@@ -237,33 +253,33 @@
 
 #pragma mark - navigation bar button
 - (void)followButtonClick {
-    followButton.selected = YES;
-    foundButton.selected = NO;
-    cityButton.selected = NO;
+    _followButton.selected = YES;
+    _foundButton.selected = NO;
+    _cityButton.selected = NO;
     
-    navBarState = HHNavFollowButtonClick;
-    tightlyFlowLayout.navBarState = navBarState;
-    [homeCollectionView reloadData];
+    _navBarState = HHNavFollowButtonClick;
+    _tightlyFlowLayout.navBarState = _navBarState;
+    [self.homeCollectionView reloadData];
 }
 
 - (void)foundButtonClick {
-    followButton.selected = NO;
-    foundButton.selected = YES;
-    cityButton.selected = NO;
+    _followButton.selected = NO;
+    _foundButton.selected = YES;
+    _cityButton.selected = NO;
     
-    navBarState = HHNavFoundButtonClick;
-    tightlyFlowLayout.navBarState = navBarState;
-    [homeCollectionView reloadData];
+    _navBarState = HHNavFoundButtonClick;
+    _tightlyFlowLayout.navBarState = _navBarState;
+    [self.homeCollectionView reloadData];
 }
 
 - (void)cityButtonClick {
-    followButton.selected = NO;
-    foundButton.selected = NO;
-    cityButton.selected = YES;
+    _followButton.selected = NO;
+    _foundButton.selected = NO;
+    _cityButton.selected = YES;
     
-    navBarState = HHNavCityButtonClick;
-    tightlyFlowLayout.navBarState = navBarState;
-    [homeCollectionView reloadData];
+    _navBarState = HHNavCityButtonClick;
+    _tightlyFlowLayout.navBarState = _navBarState;
+    [self.homeCollectionView reloadData];
 }
 
 

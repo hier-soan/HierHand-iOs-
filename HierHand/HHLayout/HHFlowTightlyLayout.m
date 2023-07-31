@@ -10,29 +10,33 @@
 
 #define NumberOfColum   2
 
-@interface HHFlowTightlyLayout() {
+@interface HHFlowTightlyLayout()
     
-    NSUInteger numberOfColumn;
+@property(nonatomic) NSUInteger numberOfColumn;
     
-    // 关注页面item的属性
-    NSMutableArray *followAttributesArray;
+// 关注页面item的属性
+@property(nonatomic) NSMutableArray *followAttributesArray;
     
-    // 发现页面item的属性
-    NSMutableArray *foundAttributesArray;
+// 发现页面item的属性
+@property(nonatomic) NSMutableArray *foundAttributesArray;
     
-    // 同城页面item的属性
-    NSMutableArray *sameCityAttributesArray;
+// 同城页面item的属性
+@property(nonatomic) NSMutableArray *sameCityAttributesArray;
+
+// 边缘间距
+@property(nonatomic) UIEdgeInsets edgeInsets;
     
-    UIEdgeInsets edgeInsets;
+// cell之间的间距
+@property(nonatomic) CGFloat itemSpacing;
     
-    CGFloat itemSpacing;
+// 关注页面的总高度
+@property(nonatomic) CGFloat heightOfFollowPage;
     
-    CGFloat heightOfFollowPage;
+// 发现页面的总高度
+@property(nonatomic) CGFloat heightOfFoundPage;
     
-    CGFloat heightOfFoundPage;
-    
-    CGFloat heightOfCityPage;
-}
+// 同城页面的总高度
+@property(nonatomic) CGFloat heightOfCityPage;
 
 @end
 
@@ -41,25 +45,28 @@
 - (void)prepareLayout {
     [super prepareLayout];
     
+    // 初始化变量
     [self initVariable];
     
+    // 计算属性
     [self calculateAttributes];
 }
 
 
 - (nullable NSArray<__kindof UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
     NSMutableArray *attributesArray;
+    
     switch(_navBarState) {
-        case HHNavFollowButtonClick: {
-            attributesArray = followAttributesArray;
+        case HHNavFollowButtonClick: {  // 如果关注页面的按钮按下
+            attributesArray = _followAttributesArray;
             break;
         }
         case HHNavFoundButtonClick: {
-            attributesArray = foundAttributesArray;
+            attributesArray = _foundAttributesArray;
             break;
         }
         case HHNavCityButtonClick: {
-            attributesArray = sameCityAttributesArray;
+            attributesArray = _sameCityAttributesArray;
             break;
         }
     }
@@ -79,19 +86,19 @@
     CGFloat height = 0;
     switch(_navBarState) {
         case HHNavFollowButtonClick: {
-            height = heightOfFollowPage;
+            height = _heightOfFollowPage;
             break;
         }
         case HHNavFoundButtonClick: {
-            height = heightOfFoundPage;
+            height = _heightOfFoundPage;
             break;
         }
         case HHNavCityButtonClick: {
-            height = heightOfCityPage;
+            height = _heightOfCityPage;
             break;
         }
     }
-    CGFloat contentHeight = height + edgeInsets.bottom;
+    CGFloat contentHeight = height + _edgeInsets.bottom;
     return CGSizeMake([[UIScreen mainScreen] bounds].size.width, contentHeight);
 }
 
@@ -101,30 +108,30 @@
 
 #pragma mark - private method
 - (void)initVariable {
-    numberOfColumn = NumberOfColum;
-    edgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
-    itemSpacing = 10;
+    _numberOfColumn = NumberOfColum;
+    _edgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+    _itemSpacing = 10;
     _itemWidth = ([[UIScreen mainScreen] bounds].size.width
-                  - edgeInsets.left - edgeInsets.right
-                  - (numberOfColumn - 1) * itemSpacing) / numberOfColumn;
+                  - _edgeInsets.left - _edgeInsets.right
+                  - (_numberOfColumn - 1) * _itemSpacing) / _numberOfColumn;
     
     
-    followAttributesArray = [NSMutableArray array];
-    [followAttributesArray removeAllObjects];
+    _followAttributesArray = [NSMutableArray array];
+    [_followAttributesArray removeAllObjects];
     
-    foundAttributesArray = [NSMutableArray array];
-    [foundAttributesArray removeAllObjects];
+    _foundAttributesArray = [NSMutableArray array];
+    [_foundAttributesArray removeAllObjects];
     
-    sameCityAttributesArray = [NSMutableArray array];
-    [sameCityAttributesArray removeAllObjects];
+    _sameCityAttributesArray = [NSMutableArray array];
+    [_sameCityAttributesArray removeAllObjects];
     
 }
 
 - (void)calculateAttributes {
     // 计算在关注、发现、同城三个页面中items的属性和最高列高度
-    heightOfFollowPage = [self configureNumberOfItems:_numberOfFollowItems forAttributeArray:followAttributesArray];
-    heightOfFoundPage = [self configureNumberOfItems:_numberOfFoundItems forAttributeArray:foundAttributesArray];
-    heightOfCityPage = [self configureNumberOfItems:_numberOfSameCityItems forAttributeArray:sameCityAttributesArray];
+    _heightOfFollowPage = [self configureNumberOfItems:_numberOfFollowItems forAttributeArray:_followAttributesArray];
+    _heightOfFoundPage = [self configureNumberOfItems:_numberOfFoundItems forAttributeArray:_foundAttributesArray];
+    _heightOfCityPage = [self configureNumberOfItems:_numberOfSameCityItems forAttributeArray:_sameCityAttributesArray];
 }
 
 - (CGFloat)configureNumberOfItems:(NSUInteger)number forAttributeArray:(NSMutableArray *)array {
@@ -132,8 +139,8 @@
     [heightOfColumn removeAllObjects];
     
     // 为每列的高度添加一个edgeInsets.top的初始值
-    for (int i = 0; i < numberOfColumn; i++) {
-        [heightOfColumn addObject:@(edgeInsets.top)];
+    for (int i = 0; i < _numberOfColumn; i++) {
+        [heightOfColumn addObject:@(_edgeInsets.top)];
     }
     
     // 计算每个item的属性，主要计算frame中的高度和xy坐标
@@ -143,11 +150,11 @@
         
         // item的x坐标，排到列中最矮的那一列
         NSUInteger shortestIndex = [self getShortestColomnIndex:heightOfColumn];
-        itemX = edgeInsets.left + shortestIndex * (_itemWidth + itemSpacing);
+        itemX = _edgeInsets.left + shortestIndex * (_itemWidth + _itemSpacing);
         
         // item的y坐标
         CGFloat colomnHeight = [heightOfColumn[shortestIndex] floatValue];
-        itemY = colomnHeight + itemSpacing;
+        itemY = colomnHeight + _itemSpacing;
         
         // item的高度需要随cell中内容的大小来决定
         CGFloat itemHeight = 0;
@@ -171,7 +178,7 @@
     NSUInteger index = 0;
   //  CGFloat shortest = [[UIScreen mainScreen] bounds].size.height;  bug点：双列高度并不是只有屏幕这么高
     CGFloat shortest = INT_MAX; // problem
-    for (NSUInteger i = 0; i < numberOfColumn; i++) {
+    for (NSUInteger i = 0; i < _numberOfColumn; i++) {
         if ([heightOfColumn[i] floatValue] < shortest) {
             shortest = [heightOfColumn[i] floatValue];
             index = i;
@@ -183,7 +190,7 @@
 - (NSUInteger)getHighestColomnIndex:(NSMutableArray *)heightOfColumn {
     NSUInteger index = 0;
     CGFloat highest = 0;
-    for (NSUInteger i = 0; i < numberOfColumn; i++) {
+    for (NSUInteger i = 0; i < _numberOfColumn; i++) {
         if ([heightOfColumn[i] floatValue] > highest) {
             highest = [heightOfColumn[i] floatValue];
             index = i;

@@ -27,6 +27,11 @@
 		CB0CCD622A7131A9000CB46B /* HHCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0CCD612A7131A9000CB46B /* HHCommentView.m */; };
 		CB0CCD652A7146CF000CB46B /* background-image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB0CCD642A7146CF000CB46B /* background-image.jpg */; };
 		CB0CCD692A71472D000CB46B /* HHProfileBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0CCD682A71472D000CB46B /* HHProfileBackgroundView.m */; };
+		CBB212B92A766F2900444BFF /* HHSlipSliderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB212B82A766F2900444BFF /* HHSlipSliderItem.m */; };
+		CBB212BC2A76801700444BFF /* HHSlipSliderController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB212BB2A76801700444BFF /* HHSlipSliderController.m */; };
+		CBB212C22A7680AE00444BFF /* HHSlipSliderCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB212C12A7680AE00444BFF /* HHSlipSliderCollectionLayout.m */; };
+		CBB212C82A769FA600444BFF /* HHSlipRootUserComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB212C72A769FA600444BFF /* HHSlipRootUserComponent.m */; };
+		CBB212CB2A76CA7600444BFF /* HHSlipSliderSectionHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB212CA2A76CA7600444BFF /* HHSlipSliderSectionHeaderCollectionReusableView.m */; };
 		CBC7C7492A6D4051001C3D71 /* HHHomeDoubleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC7C7482A6D4051001C3D71 /* HHHomeDoubleCollectionViewCell.m */; };
 		CBC7C74C2A6D60C9001C3D71 /* HHUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC7C74B2A6D60C9001C3D71 /* HHUserInfo.m */; };
 		CBC7C7502A6D6111001C3D71 /* HHBaseWorks.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC7C74F2A6D6111001C3D71 /* HHBaseWorks.m */; };
@@ -83,6 +88,16 @@
 		CB0CCD642A7146CF000CB46B /* background-image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-image.jpg"; sourceTree = "<group>"; };
 		CB0CCD672A71472D000CB46B /* HHProfileBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHProfileBackgroundView.h; sourceTree = "<group>"; };
 		CB0CCD682A71472D000CB46B /* HHProfileBackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHProfileBackgroundView.m; sourceTree = "<group>"; };
+		CBB212B72A766F2900444BFF /* HHSlipSliderItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSlipSliderItem.h; sourceTree = "<group>"; };
+		CBB212B82A766F2900444BFF /* HHSlipSliderItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSlipSliderItem.m; sourceTree = "<group>"; };
+		CBB212BA2A76801700444BFF /* HHSlipSliderController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSlipSliderController.h; sourceTree = "<group>"; };
+		CBB212BB2A76801700444BFF /* HHSlipSliderController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSlipSliderController.m; sourceTree = "<group>"; };
+		CBB212C02A7680AE00444BFF /* HHSlipSliderCollectionLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSlipSliderCollectionLayout.h; sourceTree = "<group>"; };
+		CBB212C12A7680AE00444BFF /* HHSlipSliderCollectionLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSlipSliderCollectionLayout.m; sourceTree = "<group>"; };
+		CBB212C62A769FA600444BFF /* HHSlipRootUserComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSlipRootUserComponent.h; sourceTree = "<group>"; };
+		CBB212C72A769FA600444BFF /* HHSlipRootUserComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSlipRootUserComponent.m; sourceTree = "<group>"; };
+		CBB212C92A76CA7600444BFF /* HHSlipSliderSectionHeaderCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSlipSliderSectionHeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		CBB212CA2A76CA7600444BFF /* HHSlipSliderSectionHeaderCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSlipSliderSectionHeaderCollectionReusableView.m; sourceTree = "<group>"; };
 		CBC7C7472A6D4051001C3D71 /* HHHomeDoubleCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHHomeDoubleCollectionViewCell.h; sourceTree = "<group>"; };
 		CBC7C7482A6D4051001C3D71 /* HHHomeDoubleCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHHomeDoubleCollectionViewCell.m; sourceTree = "<group>"; };
 		CBC7C74A2A6D60C9001C3D71 /* HHUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHUserInfo.h; sourceTree = "<group>"; };
@@ -230,6 +245,39 @@
 			path = HHToolBar;
 			sourceTree = "<group>";
 		};
+		CBB212C32A7680B300444BFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CBB212B72A766F2900444BFF /* HHSlipSliderItem.h */,
+				CBB212B82A766F2900444BFF /* HHSlipSliderItem.m */,
+				CBD4A1912A7256C600E5610D /* HHSlipSliderView.h */,
+				CBD4A1922A7256C600E5610D /* HHSlipSliderView.m */,
+				CBB212C62A769FA600444BFF /* HHSlipRootUserComponent.h */,
+				CBB212C72A769FA600444BFF /* HHSlipRootUserComponent.m */,
+				CBB212C92A76CA7600444BFF /* HHSlipSliderSectionHeaderCollectionReusableView.h */,
+				CBB212CA2A76CA7600444BFF /* HHSlipSliderSectionHeaderCollectionReusableView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CBB212C42A7680D100444BFF /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				CBB212C02A7680AE00444BFF /* HHSlipSliderCollectionLayout.h */,
+				CBB212C12A7680AE00444BFF /* HHSlipSliderCollectionLayout.m */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		CBB212C52A7680E700444BFF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CBB212BA2A76801700444BFF /* HHSlipSliderController.h */,
+				CBB212BB2A76801700444BFF /* HHSlipSliderController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		CBC7C7462A6D400D001C3D71 /* HHCustomVIewComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,8 +313,9 @@
 		CBD4A1902A7256A000E5610D /* HHSlipSliderView */ = {
 			isa = PBXGroup;
 			children = (
-				CBD4A1912A7256C600E5610D /* HHSlipSliderView.h */,
-				CBD4A1922A7256C600E5610D /* HHSlipSliderView.m */,
+				CBB212C52A7680E700444BFF /* Controller */,
+				CBB212C32A7680B300444BFF /* View */,
+				CBB212C42A7680D100444BFF /* Layout */,
 			);
 			path = HHSlipSliderView;
 			sourceTree = "<group>";
@@ -363,11 +412,15 @@
 			files = (
 				CB0CCD5B2A70F3E2000CB46B /* HHProfileFlowElement.m in Sources */,
 				CBE6A7872A6E3394003F2998 /* HHSelectedToolBar.m in Sources */,
+				CBB212C82A769FA600444BFF /* HHSlipRootUserComponent.m in Sources */,
 				CB0CCD5E2A7105DF000CB46B /* HHRootUserInfo.m in Sources */,
 				CBE6A7952A6EB44D003F2998 /* HHCommentBottomElement.m in Sources */,
 				CB0CCD692A71472D000CB46B /* HHProfileBackgroundView.m in Sources */,
 				CBC7C7592A6D6836001C3D71 /* HHUserManager.m in Sources */,
+				CBB212CB2A76CA7600444BFF /* HHSlipSliderSectionHeaderCollectionReusableView.m in Sources */,
 				CBC7C7492A6D4051001C3D71 /* HHHomeDoubleCollectionViewCell.m in Sources */,
+				CBB212B92A766F2900444BFF /* HHSlipSliderItem.m in Sources */,
+				CBB212BC2A76801700444BFF /* HHSlipSliderController.m in Sources */,
 				CB0734CE2A6A7E790000884E /* HHSelectedController.m in Sources */,
 				CB0734D12A6A7E8F0000884E /* HHMessageController.m in Sources */,
 				CB0734B52A6A7C9C0000884E /* ViewController.m in Sources */,
@@ -378,6 +431,7 @@
 				CB0734AF2A6A7C9C0000884E /* AppDelegate.m in Sources */,
 				CB0734D42A6A7EAC0000884E /* HHMeController.m in Sources */,
 				CB0734D82A6A86020000884E /* HHTabBarItem.m in Sources */,
+				CBB212C22A7680AE00444BFF /* HHSlipSliderCollectionLayout.m in Sources */,
 				CBE6A78F2A6E5F24003F2998 /* HHFlowTightlyLayout.m in Sources */,
 				CBD4A19A2A72958400E5610D /* HHVideoPlayerHelper.m in Sources */,
 				CB0CCD582A70F262000CB46B /* HHProfilePageController.m in Sources */,
