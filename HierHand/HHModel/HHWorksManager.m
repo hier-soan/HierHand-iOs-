@@ -47,7 +47,7 @@
             for (NSString* Id in userInfo.workIdentifications) {
                 HHBaseWorks *works = [[HHBaseWorks alloc] init];
                 // random
-                works.height = arc4random_uniform(100) + 180;
+                works.height = arc4random_uniform(60) + 240;
                 works.identification = [Id copy];
                 works.owner = userInfo;
                 works.backgroundColor = HHRandomColor;

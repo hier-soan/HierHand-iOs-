@@ -82,17 +82,14 @@
         CGFloat temp = 0;
         
         if (i == 0) {
-            UICollectionViewLayoutAttributes *rootUserHeaderAttributes = nil;
-            rootUserHeaderAttributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
+            UICollectionViewLayoutAttributes *rootUserHeaderAttributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
             rootUserHeaderAttributes.frame = CGRectMake(0, lastSectionHeight + _sectionInset, _viewWidth, _rootUserHeaderHeight);
             [_attributesArray addObject:rootUserHeaderAttributes];
             lastSectionHeight += _rootUserHeaderHeight + _sectionInset;
         }
         
         if (i > 0) {
-            UICollectionViewLayoutAttributes *headerAttributes = nil;
-            
-            headerAttributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
+            UICollectionViewLayoutAttributes *headerAttributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
             
             headerAttributes.frame = CGRectMake(0, lastSectionHeight + _sectionInset, 200, _headerHeight);
             [_attributesArray addObject:headerAttributes];
