@@ -33,38 +33,20 @@
         [self setCornerRadius:7.0f boardWidth:0.7f];
         
         //  [self setCellLayout];
+        _overviewImageView = [[UIImageView alloc] init];
+        [self.contentView addSubview:_overviewImageView];
+        
+        _iconImageView = [[UIImageView alloc] init];
+        [self.contentView addSubview:_iconImageView];
+        
+        _userNameLabel = [[UILabel alloc] init];
+        _userNameLabel.font = [UIFont systemFontOfSize:12];
+        [self.contentView addSubview:_userNameLabel];
     }
     return self;
 }
 
 #pragma mark - lazy load
-// 概览图
-- (UIImageView *)overviewImageView {
-    if (!_overviewImageView) {
-        _overviewImageView = [[UIImageView alloc] init];
-        [self.contentView addSubview:_overviewImageView];
-    }
-    return _overviewImageView;
-}
-
-// 用户头像
-- (UIImageView *)iconImageView {
-    if (!_iconImageView) {
-        _iconImageView = [[UIImageView alloc] init];
-        [self.contentView addSubview:_iconImageView];
-    }
-    return _iconImageView;
-}
-
-// 用户名
-- (UILabel *)userNameLabel {
-    if (!_userNameLabel) {
-        _userNameLabel = [[UILabel alloc] init];
-        _userNameLabel.font = [UIFont systemFontOfSize:12];
-        [self.contentView addSubview:_userNameLabel];
-    }
-    return _userNameLabel;
-}
 
 // 用户信息
 - (HHUserInfo *)userInfo {

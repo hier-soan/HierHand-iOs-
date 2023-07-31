@@ -27,20 +27,15 @@
 -(id)init {
     self = [super init];
     if (self) {
-        
+        _slipSliderView = [[HHSlipSliderView alloc] init];
+        [self.view addSubview:_slipSliderView];
     }
     return self;
 }
 
 #pragma mark - lazy load
 
-- (HHSlipSliderView *)slipSliderView {
-    if (!_slipSliderView) {
-        _slipSliderView = [[HHSlipSliderView alloc] init];
-        [self.view addSubview:_slipSliderView];
-    }
-    return _slipSliderView;
-}
+
 
 #pragma mark - collection view data source
 

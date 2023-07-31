@@ -15,6 +15,12 @@
 //        NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"[_avatarView(%d)]", 50] options:0 metrics:nil views:NSDictionaryOfVariableBindings(_avatarView)];
 //        [_avatarView addConstraints:constraints];
         
+        _avatarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"avatar.jpg"]];
+        _avatarView.frame = CGRectMake(0, 0, 50, 50);
+        self.frame = _avatarView.frame;
+        [self setAvatarCornerLayer];
+        [self addSubview:_avatarView];
+        
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarDidTap)];
         [self addGestureRecognizer:tapGesture];
     }
@@ -22,16 +28,7 @@
 }
 
 #pragma mark - lazy load
-- (UIImageView *)avatarView {
-    if (!_avatarView) {
-        _avatarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"avatar.jpg"]];
-        _avatarView.frame = CGRectMake(0, 0, 50, 50);
-        self.frame = _avatarView.frame;
-        [self setAvatarCornerLayer];
-        [self addSubview:_avatarView];
-    }
-    return _avatarView;
-}
+
 
 #pragma mark - private methods
 - (void)setAvatarCornerLayer {

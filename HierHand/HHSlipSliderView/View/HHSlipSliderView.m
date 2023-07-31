@@ -30,6 +30,25 @@ static HHSlipSliderView *staticSlipSiderView = nil;
         // 设置主view的frame，不然tapGesture不起作用
         self.frame = CGRectMake(0, 0, screenSize.width, screenSize.height);
         
+        // 灰色蒙版
+        _grayMask = [[UIView alloc] init];
+        _grayMask.frame = CGRectMake(0, 0, screenSize.width, screenSize.height);
+        _grayMask.alpha = 0.f;
+        _grayMask.backgroundColor = [UIColor grayColor];
+        [self addSubview:_grayMask];
+        
+        // 左滑菜单
+        _slipMenu = [[UIView alloc] init];
+        _slipMenu.frame = CGRectMake(-0.75 * screenSize.width, 0, -0.75 * screenSize.width, screenSize.height);
+        _slipMenu.backgroundColor = [UIColor whiteColor];
+        [self addSubview:_slipMenu];
+        
+        // 菜单collection view
+        HHSlipSliderCollectionLayout *layout = [[HHSlipSliderCollectionLayout alloc] init];
+        _collectionView = [[UICollectionView alloc] initWithFrame:self.frame collectionViewLayout:layout];
+        _collectionView.frame = self.slipMenu.frame;
+        [self.slipMenu addSubview:_collectionView];
+        
         // 添加点击手势识别
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] init];
         [tapGesture addTarget:self action:@selector(playHideAnimation)];
@@ -39,38 +58,7 @@ static HHSlipSliderView *staticSlipSiderView = nil;
 }
 
 #pragma mark - lazy load
-// 灰色蒙版
-- (UIView *)grayMask {
-    if (!_grayMask) {
-        _grayMask = [[UIView alloc] init];
-        _grayMask.frame = CGRectMake(0, 0, screenSize.width, screenSize.height);
-        _grayMask.alpha = 0.f;
-        _grayMask.backgroundColor = [UIColor grayColor];
-        [self addSubview:_grayMask];
-    }
-    return _grayMask;
-}
 
-// 左滑菜单
-- (UIView *)slipMenu {
-    if (!_slipMenu) {
-        _slipMenu = [[UIView alloc] init];
-        _slipMenu.frame = CGRectMake(-0.75 * screenSize.width, 0, -0.75 * screenSize.width, screenSize.height);
-        _slipMenu.backgroundColor = [UIColor whiteColor];
-        [self addSubview:_slipMenu];
-    }
-    return _slipMenu;
-}
-
-// 菜单collection view
-- (UICollectionView *)collectionView {
-    if (!_collectionView) {
-        HHSlipSliderCollectionLayout *layout = [[HHSlipSliderCollectionLayout alloc] init];
-        _collectionView = [[UICollectionView alloc] initWithFrame:self.frame collectionViewLayout:layout];
-        [self.slipMenu addSubview:_collectionView];
-    }
-    return _collectionView;
-}
 
 #pragma mark - public methods
 + (void)showSlipMenu {

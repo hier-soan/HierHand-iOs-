@@ -69,31 +69,28 @@
     
     self.navigationItem.titleView = [self createNavBarTitleView];
     
+    // 初始化双列布局
+    _tightlyFlowLayout = [[HHFlowTightlyLayout alloc] init];
+    _tightlyFlowLayout.delegate = self;
+    _tightlyFlowLayout.numberOfFollowItems = [_userManager followCount];
+    _tightlyFlowLayout.numberOfFoundItems = [_userManager foundCount];
+    _tightlyFlowLayout.numberOfSameCityItems = [_userManager sameCityCount];
+   
+    _homeCollectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:_tightlyFlowLayout];
+    _homeCollectionView.delegate = self;
+    _homeCollectionView.dataSource = self;
+    [_homeCollectionView setBackgroundColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1]];
+    [self.view addSubview:_homeCollectionView];
+    
+    [_homeCollectionView registerClass:[HHHomeDoubleCollectionViewCell class] forCellWithReuseIdentifier:@"HHHomeDoubleCollectionViewCell"];
+    
     // 初始化首页状态
     _followButton.selected = YES;
     _navBarState = HHNavFollowButtonClick;
 }
 
 #pragma mark - lazy load
-- (UICollectionView *)homeCollectionView {
-    if (!_homeCollectionView) {
-        // 初始化双列布局
-        _tightlyFlowLayout = [[HHFlowTightlyLayout alloc] init];
-        _tightlyFlowLayout.delegate = self;
-        _tightlyFlowLayout.numberOfFollowItems = [_userManager followCount];
-        _tightlyFlowLayout.numberOfFoundItems = [_userManager foundCount];
-        _tightlyFlowLayout.numberOfSameCityItems = [_userManager sameCityCount];
-       
-        _homeCollectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:_tightlyFlowLayout];
-        _homeCollectionView.delegate = self;
-        _homeCollectionView.dataSource = self;
-        [_homeCollectionView setBackgroundColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1]];
-        [self.view addSubview:_homeCollectionView];
-        
-        [_homeCollectionView registerClass:[HHHomeDoubleCollectionViewCell class] forCellWithReuseIdentifier:@"HHHomeDoubleCollectionViewCell"];
-    }
-    return _homeCollectionView;
-}
+
 
 #pragma mark - life cycle
 

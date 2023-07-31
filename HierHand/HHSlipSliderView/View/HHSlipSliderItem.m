@@ -30,6 +30,18 @@ const CGFloat titleFontSize = 12.f;
         self.frame = CGRectMake(0, 0, itemWidth, itemHeight);
         self.backgroundColor = [UIColor whiteColor];
         
+        // item图标
+        _icon = [[UIImageView alloc] init];
+        _icon.frame = CGRectMake(0, 0, itemIconWidth, itemHeight);
+        [_icon setImage:[UIImage systemImageNamed:@"list.bullet.rectangle.portrait"]];
+        [self addSubview:_icon];
+        
+        // item标题
+        _title = [[UILabel alloc] init];
+        [_title setText:@"默认标题"];
+        [_title setFont:[UIFont systemFontOfSize:titleFontSize]];
+        [self addSubview:_title];
+        
         // 初始化点击手势识别
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] init];
         [tapGesture addTarget:self action:@selector(userTapItem)];
@@ -39,25 +51,7 @@ const CGFloat titleFontSize = 12.f;
 }
 
 #pragma mark - lazy load
-- (UIImageView *)icon {
-    if (!_icon) {
-        _icon = [[UIImageView alloc] init];
-        _icon.frame = CGRectMake(0, 0, itemIconWidth, itemHeight);
-        [_icon setImage:[UIImage systemImageNamed:@"list.bullet.rectangle.portrait"]];
-        [self addSubview:_icon];
-    }
-    return _icon;
-}
 
-- (UILabel *)title {
-    if (!_title) {
-        _title = [[UILabel alloc] init];
-        [_title setText:@"默认标题"];
-        [_title setFont:[UIFont systemFontOfSize:titleFontSize]];
-        [self addSubview:_title];
-    }
-    return _title;
-}
 
 #pragma mark - public methods
 

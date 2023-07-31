@@ -14,13 +14,7 @@
     if (self) {
         self.backgroundColor = [UIColor blackColor];
         self.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 30);
-    }
-    return self;
-}
-
-#pragma mark - lazy load
-- (UITextField *)commentField {
-    if (!_commentField) {
+        
         _commentField = [[UITextField alloc] init];
         _commentField.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
         NSAttributedString *placeHolderAttributed = [[NSAttributedString alloc] initWithString:@"发条友善的评论吧～" attributes:@{NSForegroundColorAttributeName : [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1]}];
@@ -30,7 +24,10 @@
         
         [self addSubview:_commentField];
     }
-    return _commentField;
+    return self;
 }
+
+#pragma mark - lazy load
+
 
 @end

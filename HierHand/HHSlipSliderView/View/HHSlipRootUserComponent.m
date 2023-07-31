@@ -36,6 +36,17 @@
         // 初始化自身大小
         self.frame = CGRectMake(0, 0, rootUserComponentWidth, rootUserComponentHeight);
         
+        // 初始化图像视图
+        _userIcon = [[UIImageView alloc] init];
+        _userIcon.frame = CGRectMake(0, 0, userIconWidth, userIconHeight);
+        [self addSubview:_userIcon];
+        
+        // 初始化用户名称
+        _userName = [[UILabel alloc] init];
+        _userName.frame = CGRectMake(CGRectGetMaxX(_userIcon.frame) + itemSpacing, 0, userNameWidth, userNameHeight);
+        [_userName setFont:[UIFont systemFontOfSize:userNameFontSize]];
+        [self addSubview:_userName];
+        
         // 测试
         [self.userIcon setImage:[UIImage systemImageNamed:@"person"]];
         [self.userName setText:@"本机用户"];
@@ -51,26 +62,7 @@
 }
 
 #pragma mark - lazy load
-// 初始化图像视图
-- (UIImageView *)userIcon {
-    if (!_userIcon) {
-        _userIcon = [[UIImageView alloc] init];
-        _userIcon.frame = CGRectMake(0, 0, userIconWidth, userIconHeight);
-        [self addSubview:_userIcon];
-    }
-    return _userIcon;
-}
 
-// 初始化用户名称
-- (UILabel *)userName {
-    if (!_userName) {
-        _userName = [[UILabel alloc] init];
-        _userName.frame = CGRectMake(CGRectGetMaxX(_userIcon.frame) + itemSpacing, 0, userNameWidth, userNameHeight);
-        [_userName setFont:[UIFont systemFontOfSize:userNameFontSize]];
-        [self addSubview:_userName];
-    }
-    return _userName;
-}
 
 #pragma mark - public methods
 

@@ -15,14 +15,6 @@
 - (id)init {
     self = [super init];
     if (self) {
-        
-    }
-    return self;
-}
-
-#pragma mark - lazy load
-- (UIButton *)followButton {
-    if (!_followButton) {
         _followButton = [[UIButton alloc] init];
         
         CGFloat buttonX = CGRectGetMaxX(self.avatarView.frame) / 2 -(HHSelectedFollowButtonWidth / 2);
@@ -49,9 +41,13 @@
         
         [self addSubview:_followButton];
     }
-    return _followButton;
+    return self;
 }
 
+#pragma mark - lazy load
+
+
+#pragma mark - private methods
 - (void)followButtonTap {
     if (_followButton.isSelected) {
         [_followButton setSelected:NO];

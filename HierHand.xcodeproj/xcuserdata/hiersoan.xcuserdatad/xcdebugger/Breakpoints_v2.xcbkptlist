@@ -23,22 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EB8B743F-EA44-4FDE-B670-6A3B7AC1EF29"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HierHand/HHModel/HHUserManager.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "-initWithRandomUser"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "670D8282-8637-4D1B-A21D-E206FA682EC3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -178,54 +162,6 @@
             endingLineNumber = "192"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C03DEA5A-B93C-4385-A912-5FE46EA7D653"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HierHand/HHTabPageViewController/HHHomeViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "-collectionView:didSelectItemAtIndexPath:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C03DEA5A-B93C-4385-A912-5FE46EA7D653 - 32dde81d51f17927"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HHHomeViewController collectionView:didSelectItemAtIndexPath:]"
-                  moduleName = "HierHand"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHTabPageViewController/HHHomeViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "167"
-                  endingLineNumber = "167"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "C03DEA5A-B93C-4385-A912-5FE46EA7D653 - 32dde81d51f17906"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HHHomeViewController collectionView:didSelectItemAtIndexPath:]"
-                  moduleName = "HierHand"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hiersoan/Desktop/HierHand/HierHand/HHTabPageViewController/HHHomeViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "168"
-                  endingLineNumber = "168"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
