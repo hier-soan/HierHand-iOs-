@@ -9,11 +9,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class HHSlipSliderView;
+
+@protocol HHSlipSliderViewDelegate
+
+- (void)slipSliderViewDidDisappear;
+
+@end
+
 @interface HHSlipSliderView : UIView
 
-+ (void)showSlipMenu;
+@property(nonatomic) UICollectionView *collectionView;
 
-- (void)setCollectionViewDelegate:(UIViewController<UICollectionViewDelegate, UICollectionViewDataSource> *)controller;
+@property(nonatomic) id<HHSlipSliderViewDelegate> delegate;
+
+- (void)showSlipMenu;
 
 @end
 

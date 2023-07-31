@@ -9,6 +9,7 @@
 #import "HHBaseViewController.h"
 #import "HHUserManager.h"
 #import "HHFlowTightlyLayout.h"
+#import "HHSlipSliderController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +19,7 @@ typedef NS_ENUM(NSInteger, HHNavBarState) {
     HHNavCityButtonClick
 };
 
-@interface HHHomeViewController : HHBaseViewController <UICollectionViewDelegate, UICollectionViewDataSource, HHFlowTightlyLayouDelegate>
+@interface HHHomeViewController : HHBaseViewController <UICollectionViewDelegate, UICollectionViewDataSource, HHFlowTightlyLayouDelegate,  HHSlipSliderViewDelegate>
 
 @end
 

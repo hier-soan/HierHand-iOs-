@@ -8,7 +8,6 @@
 #import "HHHomeViewController.h"
 #import "HHHomeDoubleCollectionViewCell.h"
 #import "HHSelectedController.h"
-#import "HHSlipSliderView.h"
 
 @interface HHHomeViewController()
 
@@ -26,6 +25,7 @@
 
 // 左上角侧滑菜单
 @property(nonatomic) UIButton *fastSettingListButton;
+@property(nonatomic) HHSlipSliderController *slipSliderController;
 
 // 快速搜索
 @property(nonatomic) UIButton *fastSearchButton;
@@ -135,7 +135,11 @@
 
 // 首页右上角点击列表按钮
 - (void)fastSettingListButtonTap {
-    [HHSlipSliderView showSlipMenu];
+    _slipSliderController = [[HHSlipSliderController alloc] init];
+    _slipSliderController.slipSliderView.delegate = self;
+    [self addChildViewController:_slipSliderController];
+    [self.view addSubview:_slipSliderController.view];
+    [_slipSliderController showSlipMenu];
 }
 
 // 创建首页顶部导航栏按钮
@@ -247,6 +251,12 @@
     return info.height;
 }
 
+#pragma mark - slip slider view delegate
+- (void)slipSliderViewDidDisappear {
+    [_slipSliderController removeFromParentViewController];
+    [_slipSliderController.view removeFromSuperview];
+    _slipSliderController = nil;
+}
 
 #pragma mark - navigation bar button
 - (void)followButtonClick {

@@ -7,10 +7,9 @@
 
 #import "HHSlipSliderView.h"
 #import "HHSlipSliderCollectionLayout.h"
+#import "HHSlipSliderItem.h"
 
 #define screenSize      [[UIScreen mainScreen] bounds].size
-
-static HHSlipSliderView *staticSlipSiderView = nil;
 
 @interface HHSlipSliderView()
 
@@ -18,7 +17,7 @@ static HHSlipSliderView *staticSlipSiderView = nil;
 
 @property(nonatomic) UIView *slipMenu;
 
-@property(nonatomic) UICollectionView *collectionView;
+@property(nonatomic) UITapGestureRecognizer *tapGesture;
 
 @end
 
@@ -34,7 +33,7 @@ static HHSlipSliderView *staticSlipSiderView = nil;
         _grayMask = [[UIView alloc] init];
         _grayMask.frame = CGRectMake(0, 0, screenSize.width, screenSize.height);
         _grayMask.alpha = 0.f;
-        _grayMask.backgroundColor = [UIColor grayColor];
+        _grayMask.backgroundColor = [UIColor blackColor];
         [self addSubview:_grayMask];
         
         // 左滑菜单
@@ -48,11 +47,14 @@ static HHSlipSliderView *staticSlipSiderView = nil;
         _collectionView = [[UICollectionView alloc] initWithFrame:self.frame collectionViewLayout:layout];
         _collectionView.frame = self.slipMenu.frame;
         [self.slipMenu addSubview:_collectionView];
+        [_collectionView registerClass:[HHSlipSliderItem class] forCellWithReuseIdentifier:@"HHSlipSliderItem"];
         
         // 添加点击手势识别
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] init];
-        [tapGesture addTarget:self action:@selector(playHideAnimation)];
-        [_grayMask addGestureRecognizer:tapGesture];
+        _tapGesture = [[UITapGestureRecognizer alloc] init];
+        [_tapGesture addTarget:self action:@selector(playHideAnimation)];
+        [_grayMask addGestureRecognizer:_tapGesture];
+        
+        NSLog(@"slips slider view init");
     }
     return self;
 }
@@ -61,20 +63,13 @@ static HHSlipSliderView *staticSlipSiderView = nil;
 
 
 #pragma mark - public methods
-+ (void)showSlipMenu {
-    staticSlipSiderView = [[HHSlipSliderView alloc] init];
-    [staticSlipSiderView playShowAnimation];
-}
-
-- (void)setCollectionViewDelegate:(UIViewController<UICollectionViewDelegate, UICollectionViewDataSource> *)controller {
-    _collectionView.delegate = controller;
-    _collectionView.dataSource = controller;
-//           [_collectionView registerClass:[HHSlipSliderItem class] forCellWithReuseIdentifier:@"HHSlipSliderItem"];
+- (void)showSlipMenu {
+    [self playShowAnimation];
 }
 
 #pragma mark - private methods
 - (void)playShowAnimation {
-    [[[UIApplication sharedApplication] keyWindow] addSubview:staticSlipSiderView];
+    [[[UIApplication sharedApplication] keyWindow] addSubview:self];
     
     __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -85,7 +80,7 @@ static HHSlipSliderView *staticSlipSiderView = nil;
             weakSelf.slipMenu.frame = temp;
             
             // 灰色蒙版加深
-            weakSelf.grayMask.alpha = 0.6f;
+            weakSelf.grayMask.alpha = 0.8f;
         } completion:^(BOOL finish){
             
         }];
@@ -105,8 +100,9 @@ static HHSlipSliderView *staticSlipSiderView = nil;
             weakSelf.grayMask.alpha = 0.f;
         } completion:^(BOOL finish){
             if (finish) {
-                [staticSlipSiderView removeFromSuperview];
-                staticSlipSiderView = nil;
+                [weakSelf removeFromSuperview];
+                [weakSelf.delegate slipSliderViewDidDisappear];
+                NSLog(@"slips slider view destory");
             }
         }];
     });

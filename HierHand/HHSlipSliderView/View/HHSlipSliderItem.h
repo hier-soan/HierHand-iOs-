@@ -14,6 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 // 后续优化
 @property(nonatomic) void(^showDetailView)(void);
 
+@property(nonatomic) UIImageView *icon;
+
+@property(nonatomic) UILabel *title;
+
 @end
 
 NS_ASSUME_NONNULL_END

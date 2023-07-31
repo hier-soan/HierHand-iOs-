@@ -6,10 +6,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HHSlipSliderView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HHSlipSliderController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property(nonatomic) void(^hideSlipSliderMenuFinish)(void);
+
+@property(nonatomic) HHSlipSliderView *slipSliderView;
+
+- (void)showSlipMenu;
 
 @end
 

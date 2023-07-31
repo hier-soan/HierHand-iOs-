@@ -15,10 +15,6 @@ const CGFloat titleFontSize = 12.f;
 
 @interface HHSlipSliderItem()
 
-@property(nonatomic) UIImageView *icon;
-
-@property(nonatomic) UILabel *title;
-
 @end
 
 @implementation HHSlipSliderItem

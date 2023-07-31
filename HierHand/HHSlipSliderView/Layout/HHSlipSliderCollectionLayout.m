@@ -32,10 +32,21 @@
 - (void)prepareLayout {
     [super prepareLayout];
     [self initVariable];
+    [self calculateAttributes];
 }
 
-- (nullable UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+// 需要更多细节重写该方法
+//- (nullable UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+//    return nil;
+//}
+- (nullable NSArray<__kindof UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (UICollectionViewLayoutAttributes *attributes in _attributesArray) {
+        if (CGRectIntersectsRect(rect, attributes.frame)) {
+            [array addObject:attributes];
+        }
+    }
+    return array;
 }
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
@@ -62,9 +73,15 @@
 - (void)calculateAttributes {
     _attributesArray = [[NSMutableArray alloc] init];
     
+    CGFloat itemWidth = _viewWidth / _numberOfCol - 2 * _edgeInset + (_numberOfCol - 1) * _itemSpacing;
     for (int i = 0; i < [_numberOfItemsInSections count]; i++) {
         for (int j = 0; j < [_numberOfItemsInSections[i] unsignedLongValue]; j++) {
-            
+            NSUInteger num = [_numberOfItemsInSections[i] unsignedLongValue];
+            CGFloat itemX = _edgeInset + (j % _numberOfCol) * _itemSpacing + (j % _numberOfCol) * itemWidth;
+            CGFloat itemY = _edgeInset + (j / _numberOfCol) * _itemSpacing + (j / _numberOfCol) * itemWidth;
+            UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForRow:j inSection:i]];
+            attributes.frame = CGRectMake(itemX, itemY, itemWidth, itemWidth);
+            [_attributesArray addObject:attributes];
         }
     }
 }
